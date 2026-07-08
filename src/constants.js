@@ -26,6 +26,7 @@ import pythonLogo from './assets/tech_logo/python.png';
 import gitLogo from './assets/tech_logo/git.png';
 import githubLogo from './assets/tech_logo/github.png';
 import vscodeLogo from './assets/tech_logo/vscode.png'
+import figmaLogo from './assets/tech_logo/figma.png';
 
 import vercelLogo from './assets/tech_logo/vercel.png';
 import netlifyLogo from './assets/tech_logo/netlify.png';
@@ -91,6 +92,7 @@ export const SkillsInfo = [
       { name: 'Postman', logo: postmanLogo },
       { name: 'Vercel', logo: vercelLogo },
       { name: 'Netlify', logo: netlifyLogo },
+      { name: 'Figma', logo: figmaLogo }, 
     ],
   },
 ];
