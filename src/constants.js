@@ -27,15 +27,10 @@ import gitLogo from './assets/tech_logo/git.png';
 import githubLogo from './assets/tech_logo/github.png';
 import vscodeLogo from './assets/tech_logo/vscode.png'
 
-
-
-
 import vercelLogo from './assets/tech_logo/vercel.png';
 import netlifyLogo from './assets/tech_logo/netlify.png';
 
-
 // Experience Section Logo's
-
 import mernLogo from './assets/company_logo/mern_logo.png';
 import prodeskLogo from './assets/company_logo/prodesk_logo.png';
 
@@ -94,11 +89,8 @@ export const SkillsInfo = [
       { name: 'GitHub', logo: githubLogo },
       { name: 'VS Code', logo: vscodeLogo },
       { name: 'Postman', logo: postmanLogo },
-      // { name: 'Compass', logo: mcLogo },
       { name: 'Vercel', logo: vercelLogo },
       { name: 'Netlify', logo: netlifyLogo },
-   
-      // { name: 'Figma', logo: figmaLogo },
     ],
   },
 ];
@@ -109,8 +101,6 @@ export const SkillsInfo = [
       id: 1,
       img: mernLogo,
       role: "MERN Stack Developer",
-      // company: "",
-      // date: "July 2023 - March 2024",
       desc: "Contributed to innovative projects as a Fullstack Engineer, leading both frontend and backend development using technologies such as HTML, CSS, JavaScript, PHP, SQL, Bootstrap, and ReactJS. Worked closely with the team to deliver responsive, high-performance web applications and improve user experience through seamless integration of various technologies.",
       skills: [
         "ReactJS",
@@ -137,7 +127,6 @@ export const SkillsInfo = [
         "CSS",
         "Javascript",
         "Bootstrap",
-        
         "Material UI",
       ],
     },
@@ -149,7 +138,6 @@ export const SkillsInfo = [
       img: glaLogo,
       school: "GBPIET ,Pauri Garhwal",
       date: "Sept 2024 - July 2026",
-      // grade: "7.7 CGPA",
       desc: "I have completed my Master's degree (MCA) in Computer Applications from UTU University, pauri. During my time at GBPIET, I gained a strong foundation in programming, software development, and computer science principles. I have studied courses such as Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Web Development, and Software Engineering. I actively participated in various workshops and technical events, which enhanced my skills and knowledge. My experience at GBPIET University has been instrumental in shaping my technical abilities and professional growth.",
       degree: "Master of Computer Applications - MCA",
     },
@@ -158,7 +146,6 @@ export const SkillsInfo = [
       img: bsaLogo,
       school: "Gurukul Kangri, Haridwar",
       date: "Sept 2021 - Aug 2024",
-      // grade: "66.2%",
       desc: "I completed my Bachelor's degree in Computer Science (B.Sc.) from GKV, Haridwar. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development and Database Management Systems, I gained practical insights into the world of software development. My time at GKV allowed me to work on projects.",
       degree: "Bachelor of Science - BSC (Computer Science)",
     },
@@ -167,7 +154,6 @@ export const SkillsInfo = [
       img: vpsLogo,
       school: "Saraswati Vidhya Mandir, Kashipur",
       date: "Apr 2019 - March 2020",
-      // grade: "66%",
       desc: "I completed my class 12 education from Saraswati Vidhya Mandir, Kashipur, under the UK board, where I studied Physics, Chemistry, and Mathematics (PCM).",
       degree: "UK(XII) - PCM ",
     },
@@ -176,7 +162,6 @@ export const SkillsInfo = [
       img: vpsLogo,
       school: "Saraswati Vidhya Mandir, Kashipur",
       date: "Apr 2018 - March 2019",
-      // grade: "75.5%",
       desc: "I completed my class 10 education from Saraswati Vidhya Mandir School,Kashipur, under the UK board, where I studied Science.",
       degree: "UK(X), Science",
     },
@@ -233,4 +218,4 @@ export const SkillsInfo = [
       github: "https://codingmasterweb.in/",
       webapp: "https://codingmasterweb.in/",
     },
-  ];  
+  ];
