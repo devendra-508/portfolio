@@ -4,6 +4,7 @@ import cssLogo from './assets/tech_logo/css.png';
 
 import javascriptLogo from './assets/tech_logo/javascript.png';
 import reactjsLogo from './assets/tech_logo/reactjs.png';
+import reactjsLogo from './assets/tech_logo/reduxLogo.png';
 
 import tailwindcssLogo from './assets/tech_logo/tailwindcss.png';
 
