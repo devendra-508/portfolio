@@ -20,7 +20,7 @@ import pythonLogo from './assets/tech_logo/python.png';
 
 import gitLogo from './assets/tech_logo/git.png';
 import githubLogo from './assets/tech_logo/github.png';
-import vscodeLogo from './assets/tech_logo/vscode.png';
+import vscodeLogo from './assets/tech_logo/vscode.png'
 
 
 
