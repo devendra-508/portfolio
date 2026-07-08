@@ -28,7 +28,7 @@ import vscodeLogo from './assets/tech_logo/vscode.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
 
 // Experience Section Logo's
-;
+
 import mernLogo from './assets/company_logo/mern_logo.png';
 import prodeskLogo from './assets/company_logo/prodesk_logo.png';
 
@@ -54,28 +54,21 @@ export const SkillsInfo = [
     skills: [
       { name: 'HTML', logo: htmlLogo },
       { name: 'CSS', logo: cssLogo },
-      // { name: 'SASS', logo: sassLogo },
       { name: 'JavaScript', logo: javascriptLogo },
       { name: 'React JS', logo: reactjsLogo },
-      // { name: 'Angular', logo: angularLogo },
-      // { name: 'Redux', logo: reduxLogo },
-      // { name: 'Next JS', logo: nextjsLogo },
+      { name: 'Redux', logo: reduxLogo },
+      { name: 'Next JS', logo: nextjsLogo },
       { name: 'Tailwind CSS', logo: tailwindcssLogo },
-      // { name: 'GSAP', logo: gsapLogo },
-      // { name: 'Material UI', logo: materialuiLogo },
       { name: 'Bootstrap', logo: bootstrapLogo },
     ],
   },
   {
     title: 'Backend',
     skills: [
-      // { name: 'Springboot', logo: springbootLogo },
-      // { name: 'Node JS', logo: nodejsLogo },
+      { name: 'Node JS', logo: nodejsLogo },
       { name: 'Express JS', logo: expressjsLogo },
       { name: 'MySQL', logo: mysqlLogo },
       { name: 'MongoDB', logo: mongodbLogo },
-      // { name: 'Firebase', logo: firebaseLogo },
-      // { name: 'PostgreSQL', logo: postgreLogo },
     ],
   },
   {
@@ -83,11 +76,8 @@ export const SkillsInfo = [
     skills: [
       { name: 'C', logo: cLogo },
       { name: 'C++', logo: cppLogo },
-      // { name: 'Java', logo: javaLogo },
       { name: 'Python', logo: pythonLogo },
-      // { name: 'C-Sharp', logo: csharpLogo },
       { name: 'JavaScript', logo: javascriptLogo },
-      // { name: 'TypeScript', logo: typescriptLogo },
     ],
   },
   {
@@ -96,35 +86,18 @@ export const SkillsInfo = [
       { name: 'Git', logo: gitLogo },
       { name: 'GitHub', logo: githubLogo },
       { name: 'VS Code', logo: vscodeLogo },
-      // { name: 'Postman', logo: postmanLogo },
+      { name: 'Postman', logo: postmanLogo },
       // { name: 'Compass', logo: mcLogo },
       { name: 'Vercel', logo: vercelLogo },
-      // { name: 'Netlify', logo: netlifyLogo },
+      { name: 'Netlify', logo: netlifyLogo },
+      { name: 'Netlify', logo: netlifyLogo },
       // { name: 'Figma', logo: figmaLogo },
     ],
   },
 ];
 
   export const experiences = [
-    // {
-    //   id: 0,
-    //   img: webverseLogo,
-    //   role: "Fullstack Developer",
-    //   company: "Webverse Digital",
-    //   date: "April 2024 - Present",
-    //   desc: "Developed dynamic and scalable web applications using the MERN stack, handling both frontend and backend development. Collaborated with cross-functional teams to build responsive UI, implement RESTful APIs, and optimize application performance in an agile environment.",
-    //   skills: [
-    //     "HTML",
-    //     "CSS",
-    //     "JavaScript",
-    //     "React JS",
-    //     "Node JS",
-    //     "Tailwind CSS",
-    //     "MongoDb",
-    //     "MySQl"
-        
-    //   ],
-    // },
+  
     {
       id: 1,
       img: mernLogo,
@@ -243,26 +216,6 @@ export const SkillsInfo = [
       github: "https://github.com/codingmastr/cmtk-email-validator",
       webapp: "https://www.npmjs.com/package/cmtk-email-validator",
     },
-    // {
-    //   id: 4,
-    //   title: "Task Reminder Chrome Extension Tool",
-    //   description:
-    //     "A productivity-boosting Chrome extension designed to help users manage and remember their daily tasks. Built using JavaScript, it offers a simple interface with reminders and task notifications to keep users on track.",
-    //   image: taskremLogo,
-    //   tags: ["JavaScript", "Chrome Extension", "HTML", "CSS"],
-    //   github: "https://github.com/codingmastr/Task-Reminder-Tool",
-    //   webapp: "chrome://extensions/?id=kngheeibjnnidhfoomkpnbeghackheci",
-    // },
-    // {
-    //   id: 5,
-    //   title: "Webverse Digital",
-    //   description:
-    //     "The official website for Webverse Digital, a creative digital marketing agency. Built using HTML, CSS, and JavaScript, it features visually appealing animations and a clean design to showcase the agency's services.",
-    //   image: webverLogo,
-    //   tags: ["HTML", "CSS", "JavaScript", "Framer Motion"],
-    //   github: "https://github.com/codingmastr/Webverse-Digital",
-    //   webapp: "https://webversedigital.com/",
-    // },
     {
       id: 6,
       title: "Dictionary",
@@ -273,24 +226,4 @@ export const SkillsInfo = [
       github: "https://codingmasterweb.in/",
       webapp: "https://codingmasterweb.in/",
     },
-    // {
-    //   id: 7,
-    //   title: "Image Search App",
-    //   description:
-    //     "A React.js-based image search application that allows users to search and download high-quality images from the web. Built using external APIs to ensure a vast library of results for various queries.",
-    //   image: imagesearchLogo,
-    //   tags: ["React JS", "API", "Search Feature", "CSS", "Javascript"],
-    //   github: "https://github.com/codingmastr/Image-Search-App",
-    //   webapp: "https://imagsearch.netlify.app/",
-    // },
-    // {
-    //   id: 8,
-    //   title: "Image Background Remover",
-    //   description:
-    //     "An efficient background removal app built with React.js and API integration. Users can upload any image, remove the background, and download the transparent version for further use.",
-    //   image: removebgLogo,
-    //   tags: ["React JS", "API", "Image Processing", "HTML", "CSS", "Javascript"],
-    //   github: "https://github.com/codingmastr/Image-Background-Remover",
-    //   webapp: "https://removeyourbg.netlify.app/",
-    // },
   ];  
