@@ -8,10 +8,13 @@ import Education from "./components/Education/Education";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import BlurBlob from './components/BlurBlob';
+import ThreeBackground from "./components/ThreeBackground";
 
 const App = () => {
   return (
-    <div className="bg-[#050414]">
+    
+    <div>
+        <ThreeBackground />
 
        <BlurBlob position={{ top: '35%', left: '20%' }} size={{ width: '30%', height: '40%' }} />
 
