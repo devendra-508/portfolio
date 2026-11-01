@@ -1,0 +1,156 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  position: relative;
+  background: rgba(3, 7, 18, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4rem 1.5rem 2.5rem 1.5rem;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $electric-blue, transparent);
+    box-shadow: 0 0 15px $electric-blue;
+  }
+}
+
+.footerContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+
+  .brandName {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    letter-spacing: -0.01em;
+
+    span {
+      color: $electric-blue;
+    }
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+    color: $text-muted;
+  }
+}
+
+.navLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: 640px) {
+    gap: 2rem;
+  }
+}
+
+.navBtn {
+  background: none;
+  border: none;
+  color: $text-secondary;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $electric-blue;
+  }
+}
+
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: $text-secondary;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: $transition-fast;
+
+  &:hover {
+    color: #ffffff;
+    background: rgba(0, 210, 255, 0.15);
+    border-color: $electric-blue;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+  }
+}
+
+.divider {
+  width: 100%;
+  max-width: 800px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: $text-dim;
+  margin: 0;
+}
+
+.backToTopBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $text-muted;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    border-color: $electric-blue;
+    color: $electric-blue;
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
+  }
+}
+

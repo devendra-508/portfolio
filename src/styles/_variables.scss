@@ -1,0 +1,106 @@
+// =============================================================================
+// CINEMATIC DESIGN SYSTEM VARIABLES & MIXINS
+// =============================================================================
+
+// Backgrounds: Deep black and navy space
+$bg-black: #030712;
+$bg-navy: #050816;
+$bg-navy-secondary: #0a0f24;
+$bg-surface: rgba(10, 15, 30, 0.75);
+$bg-surface-elevated: rgba(15, 23, 42, 0.85);
+$bg-surface-glass: rgba(13, 20, 41, 0.6);
+
+// Accent Colors: Electric Blue & Subtle Purples
+$electric-blue: #00d2ff;
+$electric-blue-bright: #38bdf8;
+$electric-blue-dark: #0284c7;
+$blue-glow: rgba(0, 210, 255, 0.35);
+$blue-glow-subtle: rgba(0, 210, 255, 0.12);
+
+$accent-purple: #8245ec;
+$accent-purple-light: #a855f7;
+$purple-glow: rgba(130, 69, 236, 0.35);
+$purple-glow-subtle: rgba(130, 69, 236, 0.12);
+
+// Neutral & Text Tones
+$text-primary: #f8fafc;
+$text-secondary: #cbd5e1;
+$text-muted: #94a3b8;
+$text-dim: #64748b;
+
+// Glass Borders & Lights
+$border-glass: rgba(255, 255, 255, 0.08);
+$border-glass-bright: rgba(255, 255, 255, 0.16);
+$border-blue-glow: rgba(0, 210, 255, 0.4);
+$border-purple-glow: rgba(130, 69, 236, 0.4);
+
+// Gradients
+$gradient-accent: linear-gradient(135deg, #00d2ff 0%, #8245ec 100%);
+$gradient-accent-reverse: linear-gradient(135deg, #8245ec 0%, #00d2ff 100%);
+$gradient-text: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+$gradient-text-accent: linear-gradient(135deg, #ffffff 10%, #00d2ff 60%, #8245ec 100%);
+$gradient-surface: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(10, 15, 30, 0.85) 100%);
+$gradient-card-border: linear-gradient(135deg, rgba(0, 210, 255, 0.4) 0%, rgba(130, 69, 236, 0.15) 50%, transparent 100%);
+
+// Box Shadows
+$shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+$shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.08);
+$shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 30px rgba(130, 69, 236, 0.12);
+$shadow-glow-blue: 0 0 30px rgba(0, 210, 255, 0.25);
+$shadow-glow-purple: 0 0 30px rgba(130, 69, 236, 0.3);
+
+// Transitions
+$transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-slow: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Typography
+$font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin glass-panel($blur: 16px, $bg: $bg-surface, $border: $border-glass) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border;
+}
+
+@mixin card-hover {
+  transition: $transition-smooth;
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $border-blue-glow;
+    box-shadow: $shadow-md, $shadow-glow-blue;
+  }
+}
+
+@mixin text-gradient($gradient: $gradient-text-accent) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin section-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 7.5rem 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 8.5rem 3rem;
+  }
+}

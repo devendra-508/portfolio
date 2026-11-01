@@ -7,27 +7,28 @@ import reactjsLogo from './assets/tech_logo/reactjs.png';
 import reduxLogo from './assets/tech_logo/redux.png';
 import nextjsLogo from './assets/tech_logo/nextjs.png';
 
-
 import tailwindcssLogo from './assets/tech_logo/tailwindcss.png';
-
 import bootstrapLogo from './assets/tech_logo/bootstrap.png';
 
 import nodejsLogo from './assets/tech_logo/nodejs.png';
 import expressjsLogo from './assets/tech_logo/express.png';
+import djangoLogo from './assets/tech_logo/django.svg';
+import postgresqlLogo from './assets/tech_logo/postgre.png';
 import mysqlLogo from './assets/tech_logo/mysql.png';
 import mongodbLogo from './assets/tech_logo/mongodb.png';
 import postmanLogo from './assets/tech_logo/postman.png';
-import firebaseLogo from './assets/tech_logo/firebase.png'
+import firebaseLogo from './assets/tech_logo/firebase.png';
 
+import javaLogo from './assets/tech_logo/java.png';
+import pythonLogo from './assets/tech_logo/python.png';
 import cLogo from './assets/tech_logo/c.png';
 import cppLogo from './assets/tech_logo/cpp.png';
 
-import pythonLogo from './assets/tech_logo/python.png';
-
+import dockerLogo from './assets/tech_logo/docker.svg';
+import awsLogo from './assets/tech_logo/aws.svg';
 import gitLogo from './assets/tech_logo/git.png';
 import githubLogo from './assets/tech_logo/github.png';
-import vscodeLogo from './assets/tech_logo/vscode.png'
-// import figmaLogo from './assets/tech_logo/figma.png';
+import vscodeLogo from './assets/tech_logo/vscode.png';
 
 import vercelLogo from './assets/tech_logo/vercel.png';
 import netlifyLogo from './assets/tech_logo/netlify.png';
@@ -46,14 +47,8 @@ import githubdetLogo from './assets/work_logo/github_det.png';
 import csprepLogo from './assets/work_logo/cs_prep.png';
 import movierecLogo from './assets/work_logo/movie_rec.png';
 import ruralbusLogo from './assets/work_logo/ruralbusLogo.png';
-
 import npmLogo from './assets/work_logo/npm.png';
-
 import cmLogo from './assets/work_logo/cm.png';
-import { BiLogoFirebase } from 'react-icons/bi';
-
-
-
 
 export const SkillsInfo = [
   {
@@ -74,6 +69,8 @@ export const SkillsInfo = [
     skills: [
       { name: 'Node JS', logo: nodejsLogo },
       { name: 'Express JS', logo: expressjsLogo },
+      { name: 'Django', logo: djangoLogo },
+      { name: 'PostgreSQL', logo: postgresqlLogo },
       { name: 'MySQL', logo: mysqlLogo },
       { name: 'MongoDB', logo: mongodbLogo },
       { name: 'Firebase', logo: firebaseLogo },
@@ -82,32 +79,35 @@ export const SkillsInfo = [
   {
     title: 'Languages',
     skills: [
-      { name: 'C', logo: cLogo },
-      { name: 'C++', logo: cppLogo },
+      { name: 'Java', logo: javaLogo },
       { name: 'Python', logo: pythonLogo },
       { name: 'JavaScript', logo: javascriptLogo },
+      { name: 'C', logo: cLogo },
+      { name: 'C++', logo: cppLogo },
     ],
   },
   {
     title: 'Tools',
     skills: [
+      { name: 'Docker', logo: dockerLogo },
+      { name: 'AWS', logo: awsLogo },
       { name: 'Git', logo: gitLogo },
       { name: 'GitHub', logo: githubLogo },
       { name: 'VS Code', logo: vscodeLogo },
       { name: 'Postman', logo: postmanLogo },
       { name: 'Vercel', logo: vercelLogo },
       { name: 'Netlify', logo: netlifyLogo },
-      // { name: 'Figma', logo: figmaLogo }, 
     ],
   },
 ];
 
 export const experiences = [
-
   {
     id: 1,
     img: mernLogo,
     role: "MERN Stack Developer",
+    company: "SkillInfy Tech IT Solution Pvt. Ltd.",
+    date: "Aug 2026 - Oct 2026",
     desc: "Contributed to innovative projects as a Fullstack Engineer, leading both frontend and backend development using technologies such as HTML, CSS, JavaScript, PHP, SQL, Bootstrap, and ReactJS. Worked closely with the team to deliver responsive, high-performance web applications and improve user experience through seamless integration of various technologies.",
     skills: [
       "ReactJS",
@@ -177,21 +177,22 @@ export const education = [
 export const projects = [
   {
     id: 5,
-    title: "CRM System",
+    title: "AI CRM System",
     description:
-      "A full-stack Customer Relationship Management system designed to help businesses manage customers, leads, contacts, and daily activities from a centralized dashboard. The system provides an organized interface for managing customer information, tracking leads, and monitoring business activities.",
+      "A full-stack AI-powered Customer Relationship Management system built with Django and modern frontend, designed to help businesses manage customers, leads, contacts, and daily workflows with intelligent analytics.",
     image: githubdetLogo,
     tags: [
+      "Django",
+      "Docker",
+      "Redis",
+      "PostgreSQL",
       "React JS",
+      "AI",
       "Tailwind CSS",
-      "JavaScript",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
       "REST API"
     ],
-    github: "YOUR_GITHUB_REPOSITORY_URL",
-    webapp: "YOUR_LIVE_WEBSITE_URL",
+    github: "https://github.com/devendra-508/ai-crm-django",
+    webapp: "https://ai-crm-django.vercel.app",
   },
   {
     id: 1,
@@ -201,13 +202,15 @@ export const projects = [
     image: csprepLogo,
     tags: [
       "React JS",
-      "HTML",
-      "CSS",
+      "MongoDB",
+      "Voice Synthesis",
+      "Speech Recognition",
+      "Node.js",
       "JavaScript",
-      "Node.js"
+      "CSS"
     ],
     github: "https://github.com/devendra-508/VoiceToDoList.git",
-    webapp: "voice-to-do-list-one.vercel.app",
+    webapp: "https://voice-to-do-list-one.vercel.app",
   },
   {
     id: 4,
@@ -224,8 +227,8 @@ export const projects = [
       "REST API",
       "Razorpay"
     ],
-    github: "YOUR_GITHUB_REPOSITORY_URL",
-    webapp: "YOUR_DEPLOYED_WEBSITE_URL",
+    github: "https://github.com/devendra-508/RularBusservice",
+    webapp: "https://github.com/devendra-508/RularBusservice",
   },
   {
     id: 2,
@@ -235,25 +238,34 @@ export const projects = [
     image: movierecLogo ,
     tags: [
       "React JS",
-      "JavaScript",
-      "HTML",
-      "CSS",
+      "MongoDB Atlas",
       "Node.js",
       "Express.js",
-      "MongoDB"
+      "MongoDB",
+      "JavaScript",
+      "CSS"
     ],
-    github: "YOUR_GITHUB_REPOSITORY_URL",
-    webapp: "YOUR_LIVE_WEBSITE_URL",
+    github: "https://github.com/devendra-508/DRblog",
+    webapp: "https://drblog.onrender.com",
   },
   {
     id: 3,
-    title: "My Porfolio Website",
+    title: "My Portfolio Website",
     description:
-      "An efficient and customizable NPM package for validating email addresses. Built using React.js and Node.js, it provides robust validation features to help developers ensure that email inputs meet required formats and standards.",
+      "A modern, high-performance developer portfolio built with Next.js, SCSS modules, and dynamic animations, showcasing full-stack projects, interactive contact gateways, and technical expertise.",
     image: npmLogo,
-    tags: ["React JS", "Node.js", "NPM", "JSX", "Tailwind CSS", "JavaScript", "Vercel", "GitHub", "HTML", "Emailjs"],
-    github: "https://github.com/codingmastr/cmtk-email-validator",
-    webapp: "https://www.npmjs.com/package/cmtk-email-validator",
+    tags: [
+      "Next.js",
+      "SCSS",
+      "Motion",
+      "React JS",
+      "Tailwind CSS",
+      "JavaScript",
+      "EmailJS",
+      "Vercel"
+    ],
+    github: "https://github.com/devendra-508/portfolio",
+    webapp: "https://portfolio-19e2.vercel.app/",
   },
   {
     id: 6,
@@ -262,7 +274,7 @@ export const projects = [
       "An ed-tech platform where users can access data for gain our throuth the meaning of anywords, notes, interview questions, e-books,this technologies for a seamless learning experience.",
     image: cmLogo,
     tags: ["React JS", "Node.js", "MongoDB", "Express",],
-    github: "https://codingmasterweb.in/",
-    webapp: "https://codingmasterweb.in/",
+    github: "https://github.com/devendra-508/Dictionary-App",
+    webapp: "https://dictionary-app-zeta-six.vercel.app",
   },
 ];
