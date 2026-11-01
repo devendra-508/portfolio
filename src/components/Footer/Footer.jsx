@@ -1,68 +1,110 @@
-import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
+"use client";
 
-const Footer = () => {
-  // Smooth scroll function
-  const handleScroll = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+import React from "react";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { FiArrowUp } from "react-icons/fi";
+import styles from "./Footer.module.scss";
+
+const navLinks = [
+  { name: "Home", id: "home" },
+  { name: "About", id: "about" },
+  { name: "Skills", id: "skills" },
+  { name: "Experience", id: "experience" },
+  { name: "Projects", id: "projects" },
+  { name: "Education", id: "education" },
+  { name: "Contact", id: "contact" },
+];
+
+export default function Footer() {
+  const handleScroll = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="text-white py-8 px-[12vw] md:px-[7vw] lg:px-[20vw]">
-      <div className="container mx-auto text-center">
-        {/* Name / Logo */}
-        <h2 className="text-xl font-semibold text-purple-500">Devendra Singh Rana</h2>
-
-        {/* Navigation Links - Responsive */}
-        <nav className="flex flex-wrap justify-center space-x-4 sm:space-x-6 mt-4">
-          {[
-            { name: "About", id: "about" },
-            { name: "Skills", id: "skills" },
-            { name: "Experience", id: "experience" },
-            { name: "Projects", id: "projects" },
-            { name: "Education", id: "education" },
-          ].map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleScroll(item.id)}
-              className="hover:text-purple-500 text-sm sm:text-base my-1"
-            >
-              {item.name}
-            </button>
-          ))}
-        </nav>
-
-        {/* Social Media Icons - Responsive */}
-        <div className="flex flex-wrap justify-center space-x-4 mt-6">
-          {[
-          
-            { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/devendra-rana-44b274300" },
-            { icon: <FaInstagram />, link: "https://www.instagram.com/iamfromdevbhoomi?igsh=MWN2dnQ1bWIyaXI4MQ==" },
-            
-            
-          ].map((item, index) => (
-            <a
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl hover:text-purple-500 transition-transform transform hover:scale-110"
-            >
-              {item.icon}
-            </a>
-          ))}
+    <footer className={styles.footer}>
+      <div className={styles.footerContainer}>
+        {/* Brand & Mission */}
+        <div className={styles.brand}>
+          <div className={styles.brandName}>
+            Devendra Singh Rana<span>.</span>
+          </div>
+          <p className={styles.tagline}>
+            Full Stack Developer • Engineering Scalable Web Architectures
+          </p>
         </div>
 
-        {/* Copyright Text */}
-        <p className="text-sm text-gray-400 mt-6">
-          © 2025 DSR. All rights reserved.
-        </p>
+        {/* Quick Nav Links */}
+        <ul className={styles.navLinks}>
+          {navLinks.map((item) => (
+            <li key={item.id}>
+              <button
+                type="button"
+                onClick={() => handleScroll(item.id)}
+                className={styles.navBtn}
+              >
+                {item.name}
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        {/* Social Icons */}
+        <div className={styles.socialRow}>
+          <a
+            href="https://github.com/devendra-508"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+            className={styles.socialIcon}
+          >
+            <FaGithub size={18} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/devendra-rana-44b274300"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            className={styles.socialIcon}
+          >
+            <FaLinkedin size={18} />
+          </a>
+          <a
+            href="https://www.instagram.com/iamfromdevbhoomi?igsh=MWN2dnQ1bWIyaXI4MQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram Profile"
+            className={styles.socialIcon}
+          >
+            <FaInstagram size={18} />
+          </a>
+        </div>
+
+        <div className={styles.divider} aria-hidden="true" />
+
+        {/* Bottom Details & Back to Top */}
+        <div className={styles.bottomRow}>
+          <p className={styles.copyright}>
+            © {new Date().getFullYear()} Devendra Singh Rana (DSR). All rights reserved.
+          </p>
+
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className={styles.backToTopBtn}
+            aria-label="Scroll back to top of page"
+          >
+            <span>Back to Top</span>
+            <FiArrowUp size={14} />
+          </button>
+        </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

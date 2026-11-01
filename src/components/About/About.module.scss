@@ -1,0 +1,218 @@
+@use '../../styles/variables' as *;
+
+.aboutSection {
+  position: relative;
+  @include section-container;
+  background: radial-gradient(ellipse at 50% 0%, rgba(13, 20, 41, 0.4) 0%, transparent 70%);
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+
+  @media (min-width: 960px) {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 4.5rem;
+  }
+}
+
+// Left side photo card
+.photoWrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+  width: 100%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: $gradient-card-border;
+    border-radius: 1.75rem;
+    z-index: 0;
+    filter: blur(15px);
+    opacity: 0.5;
+  }
+}
+
+.photoCard {
+  position: relative;
+  z-index: 1;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: $gradient-surface;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: $shadow-lg;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover img {
+    transform: scale(1.03);
+  }
+}
+
+.photoCardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(3, 7, 18, 0.95) 0%, transparent 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  .overlayName {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .overlayTitle {
+    font-size: 0.85rem;
+    color: $electric-blue;
+    font-weight: 500;
+  }
+}
+
+// Right side content
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.headingWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $electric-blue;
+  }
+
+  .mainTitle {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.2;
+
+    @media (min-width: 640px) {
+      font-size: 2.75rem;
+    }
+
+    span {
+      @include text-gradient($gradient-accent);
+    }
+  }
+}
+
+.bioParagraph {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: $text-muted;
+  margin: 0;
+}
+
+// Key highlights grid
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+
+  @media (min-width: 540px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.highlightCard {
+  @include glass-panel(12px, rgba(15, 23, 42, 0.6), rgba(255, 255, 255, 0.06));
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: $transition-smooth;
+
+  &:hover {
+    border-color: rgba(0, 210, 255, 0.35);
+    background: rgba(15, 23, 42, 0.85);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 210, 255, 0.1);
+  }
+
+  .highlightIconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.65rem;
+    background: rgba(0, 210, 255, 0.1);
+    color: $electric-blue;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+  }
+
+  .highlightInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    h4 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: $text-primary;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: $text-muted;
+      line-height: 1.4;
+    }
+  }
+}
+
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.downloadCvBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: $gradient-accent;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(130, 69, 236, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 35px rgba(130, 69, 236, 0.6), 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+}
+

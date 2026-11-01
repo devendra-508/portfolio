@@ -1,7 +1,12 @@
+"use client";
+
 import React, { useState } from "react";
 import { projects } from "../../constants";
+import SectionHeading from "../Common/SectionHeading";
+import { FiGithub, FiExternalLink, FiX, FiEye } from "react-icons/fi";
+import styles from "./Work.module.scss";
 
-const Work = () => {
+export default function Work() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const handleOpenModal = (project) => {
@@ -13,113 +18,168 @@ const Work = () => {
   };
 
   return (
-    <section
-      id="work"
-      className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans relative"
-    >
-      {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">PROJECTS</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          A showcase of the projects I have worked on, highlighting my skills
-          and experience in various technologies
-        </p>
-      </div>
+    <section id="projects" className={styles.projectsSection}>
+      <SectionHeading
+        badge="Featured Work"
+        title="Featured"
+        highlight="Projects"
+        subtitle="A selection of full-stack web applications, dynamic user interfaces, and software tools built with performance and clean code."
+      />
 
-      {/* Projects Grid */}
-      <div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <div
+      <div className={styles.projectsGrid}>
+        {projects.map((project, index) => (
+          <article
             key={project.id}
-            onClick={() => handleOpenModal(project)}
-            className="border border-white bg-gray-900 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden cursor-pointer hover:shadow-purple-500/50 hover:-translate-y-2 transition-transform duration-300"
+            className={styles.projectCard}
+            data-spotlight="true"
           >
-            <div className="p-4">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover rounded-xl"
-              />
+            {/* Bento Technical Telemetry Header (Awwwards Style) */}
+            <div className={styles.bentoHeader}>
+              <span className={styles.bentoIndex}>0{index + 1} // PROJ</span>
+              <span className={styles.bentoCornerMark}>+</span>
             </div>
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-white mb-2">
+
+            {/* Project Image Preview */}
+            <div
+              className={styles.imageContainer}
+              onClick={() => handleOpenModal(project)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && handleOpenModal(project)}
+              aria-label={`View details for ${project.title}`}
+              data-cursor="hover"
+              data-cursor-text="VIEW"
+            >
+              <img
+                src={project.image?.src || project.image}
+                alt={project.title}
+                width={400}
+                height={200}
+                loading="lazy"
+              />
+              <div className={styles.imageOverlay} />
+            </div>
+
+            {/* Card Body */}
+            <div className={styles.cardBody}>
+              <h3
+                className={styles.cardTitle}
+                onClick={() => handleOpenModal(project)}
+              >
                 {project.title}
               </h3>
-              <p className="text-gray-500 mb-4 pt-4 line-clamp-3">
-                {project.description}
-              </p>
-              <div className="mb-4">
-                {project.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="inline-block bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1 mr-2 mb-2"
+
+              <p className={styles.cardDesc}>{project.description}</p>
+
+              {/* Tags */}
+              <div className={styles.tagsWrapper}>
+                {project.tags.slice(0, 6).map((tag, idx) => (
+                  <span key={idx} className={styles.tag}>
+                    {tag}
+                  </span>
+                ))}
+                {project.tags.length > 6 && (
+                  <span className={styles.tag}>+{project.tags.length - 6}</span>
+                )}
+              </div>
+
+              {/* Action Buttons */}
+              <div className={styles.cardFooter}>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.actionBtn} ${styles.codeBtn}`}
+                    aria-label={`View ${project.title} source code`}
                   >
+                    <FiGithub size={15} />
+                    <span>Code</span>
+                  </a>
+                )}
+                {project.webapp && (
+                  <a
+                    href={project.webapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.actionBtn} ${styles.liveBtn}`}
+                    aria-label={`View ${project.title} live preview`}
+                  >
+                    <FiExternalLink size={15} />
+                    <span>Live Demo</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {/* Modal View */}
+      {selectedProject && (
+        <div
+          className={styles.modalBackdrop}
+          onClick={handleCloseModal}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className={styles.modalCloseBtn}
+              onClick={handleCloseModal}
+              aria-label="Close project modal"
+            >
+              <FiX size={18} />
+            </button>
+
+            <div className={styles.modalImageWrapper}>
+              <img
+                src={selectedProject.image?.src || selectedProject.image}
+                alt={selectedProject.title}
+                width={720}
+                height={280}
+              />
+            </div>
+
+            <div className={styles.modalBody}>
+              <h3>{selectedProject.title}</h3>
+              <p>{selectedProject.description}</p>
+
+              <div className={styles.tagsWrapper}>
+                {selectedProject.tags.map((tag, index) => (
+                  <span key={index} className={styles.tag}>
                     {tag}
                   </span>
                 ))}
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
 
-      {/* Modal Container */}
-      {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="bg-gray-900 rounded-xl shadow-2xl lg:w-full w-[90%] max-w-3xl overflow-hidden relative">
-            <div className="flex justify-end p-4">
-              <button
-                onClick={handleCloseModal}
-                className="text-white text-3xl font-bold hover:text-purple-500"
-              >
-                &times;
-              </button>
-            </div>
-
-            <div className="flex flex-col">
-              <div className="w-full flex justify-center bg-gray-900 px-4">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="lg:w-full w-[95%] object-contain rounded-xl shadow-2xl"
-                />
-              </div>
-              <div className="lg:p-8 p-6">
-                <h3 className="lg:text-3xl font-bold text-white mb-4 text-md">
-                  {selectedProject.title}
-                </h3>
-                <p className="text-gray-400 mb-6 lg:text-base text-xs">
-                  {selectedProject.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selectedProject.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                {/* <div className="flex gap-4">
+              <div className={styles.modalActions}>
+                {selectedProject.github && (
                   <a
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-1/2 bg-gray-800 hover:bg-purple-800 text-gray-400 lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
+                    className={`${styles.actionBtn} ${styles.codeBtn}`}
                   >
-                    View Code
+                    <FiGithub size={16} />
+                    <span>View Repository</span>
                   </a>
+                )}
+                {selectedProject.webapp && (
                   <a
                     href={selectedProject.webapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-1/2 bg-purple-600 hover:bg-purple-800 text-white lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
+                    className={`${styles.actionBtn} ${styles.liveBtn}`}
                   >
-                    View Live
+                    <FiExternalLink size={16} />
+                    <span>Visit Application</span>
                   </a>
-                </div> */}
+                )}
               </div>
             </div>
           </div>
@@ -127,6 +187,4 @@ const Work = () => {
       )}
     </section>
   );
-};
-
-export default Work;
+}

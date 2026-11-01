@@ -1,0 +1,313 @@
+@use '../../styles/variables' as *;
+
+.projectsSection {
+  position: relative;
+  @include section-container;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @media (min-width: 680px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1080px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.projectCard {
+  @include glass-panel(16px, rgba(10, 15, 30, 0.8), rgba(255, 255, 255, 0.08));
+  border-radius: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: $transition-smooth;
+  box-shadow: $shadow-md;
+  position: relative;
+
+  // Awwwards Radial Spotlight Torch that tracks cursor
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      450px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+      rgba(0, 210, 255, 0.12),
+      rgba(130, 69, 236, 0.05) 40%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 210, 255, 0.45);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 210, 255, 0.2);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .imageContainer img {
+      transform: scale(1.06);
+    }
+  }
+}
+
+.bentoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(5, 8, 22, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.bentoIndex {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $electric-blue-bright;
+  letter-spacing: 0.08em;
+}
+
+.bentoCornerMark {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.25);
+  transition: $transition-fast;
+}
+
+.projectCard:hover .bentoCornerMark {
+  color: $electric-blue;
+  transform: rotate(90deg);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #080d1e;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(3, 7, 18, 0.8) 0%, transparent 60%);
+  }
+}
+
+.cardBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin: 0 0 0.75rem 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $electric-blue;
+  }
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: $text-muted;
+  margin: 0 0 1.25rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.tagsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+
+  .tag {
+    font-size: 0.725rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    color: $electric-blue-bright;
+  }
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.actionBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1rem;
+  border-radius: 0.65rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &.codeBtn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: $text-secondary;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+  }
+
+  &.liveBtn {
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.2) 0%, rgba(130, 69, 236, 0.25) 100%);
+    border: 1px solid rgba(0, 210, 255, 0.35);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.15);
+
+    &:hover {
+      background: $gradient-accent;
+      border-color: $electric-blue;
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+    }
+  }
+}
+
+// Modal Backdrop & Content
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  @include glass-panel(20px, rgba(13, 20, 41, 0.95), rgba(255, 255, 255, 0.15));
+  border-radius: 1.5rem;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 210, 255, 0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalCloseBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: $electric-blue;
+    transform: scale(1.1);
+  }
+}
+
+.modalImageWrapper {
+  width: 100%;
+  height: 280px;
+  background: #080d1e;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.modalBody {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.975rem;
+    line-height: 1.75;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+

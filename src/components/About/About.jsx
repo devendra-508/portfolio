@@ -1,88 +1,104 @@
-import React from 'react';
-import ReactTypingEffect from 'react-typing-effect';
-import Tilt from 'react-parallax-tilt';
-import profileImage from '../../assets/pro6.png';
+"use client";
 
-const About = () => {
+import React from "react";
+import profileImage from "../../assets/pro1.png";
+import { FiDownload, FiCheckCircle, FiServer, FiLayout, FiDatabase } from "react-icons/fi";
+import styles from "./About.module.scss";
+
+const highlights = [
+  {
+    icon: <FiServer />,
+    title: "Full Stack Mastery",
+    desc: "End-to-end web apps with Node.js, Express, React, and Next.js.",
+  },
+  {
+    icon: <FiLayout />,
+    title: "Responsive UI/UX",
+    desc: "Mobile-first, accessible, and high-performance interfaces with Tailwind.",
+  },
+  {
+    icon: <FiDatabase />,
+    title: "Database Architecture",
+    desc: "Proficient with SQL (MySQL) and NoSQL (MongoDB, Firebase).",
+  },
+  {
+    icon: <FiCheckCircle />,
+    title: "MCA Background",
+    desc: "Strong computer science foundations in Data Structures & Software Engineering.",
+  },
+];
+
+export default function About() {
   return (
-    <section
-      id="about"
-      className="py-4 px-[7vw] md:px-[7vw] lg:px-[20vw] font-sans mt-16 md:mt-24 lg:mt-32"
-    >
-      <div className="flex flex-col-reverse md:flex-row justify-between items-center">
-      
-        <div className="md:w-1/2 text-center md:text-left mt-8 md:mt-0">
-         
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
-            ℌ𝔦, ℑ 𝔞𝔪
-          </h1>
-         
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            𝐃𝐞𝐯𝐞𝐧𝐝𝐫𝐚 𝐒𝐢𝐧𝐠𝐡 𝐑𝐚𝐧𝐚
-          </h2>
-         
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-[#8245ec] leading-tight">
-            <span className="text-white">I am a </span>
-            <ReactTypingEffect
-              text={[
-                'Fullstack Developer',
-                'App Developer',
-                'UI/UX Designer',
-                'Coder',
-              ]}
-              speed={100}
-              eraseSpeed={50}
-              typingDelay={500}
-              eraseDelay={2000}
-              cursorRenderer={(cursor) => (
-                <span className="text-[#8245ec]">{cursor}</span>
-              )}
-            />
-          </h3>
-        
-          <p className="text-base sm:text-lg md:text-lg text-gray-400 mb-10 mt-8 leading-relaxed">
-          I am a full-stack developer with experience in
-            building scalable web applications. Skilled in both front-end and
-            back-end development, I specialize in the MERN stack and other
-            modern technologies to create seamless user experiences and
-            efficient solutions.
-          </p>
-         
-          <a
-            href="https://drive.google.com/file/d/1WyxHJ6iqHaW4pU0r6vRop2BIH7_Yy15U/view?usp=drive_link"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105"
-            style={{
-              background: 'linear-gradient(90deg, #8245ec, #a855f7)',
-              boxShadow: '0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec',
-            }}
-          >
-            DOWNLOAD CV
-          </a>
-          
-        </div>
-        {/* Right Side */}
-        <div className="md:w-1/2 flex justify-center md:justify-end">
-          <Tilt
-            className="w-48 h-48 sm:w-64 sm:h-64 md:w-[30rem] md:h-[30rem] border-4 border-purple-700 rounded-full"
-            tiltMaxAngleX={20}
-            tiltMaxAngleY={20}
-            perspective={1000}
-            scale={1.05}
-            transitionSpeed={1000}
-            gyroscope={true}
-          >
+    <section id="about" className={styles.aboutSection}>
+      <div className={styles.aboutGrid}>
+        {/* Left: Framed Profile Photo with Gradient Overlay */}
+        <div className={styles.photoWrapper}>
+          <div className={styles.photoCard}>
             <img
-              src={profileImage}
-              alt="Devendra Singh Rana"
-              className="w-full h-full rounded-full drop-shadow-[0_10px_20px_rgba(130,69,236,0.5)]"
+              src={profileImage?.src || profileImage}
+              alt="Devendra Singh Rana - Professional Overview"
+              width={400}
+              height={480}
+              loading="lazy"
             />
-          </Tilt>
+            <div className={styles.photoCardOverlay}>
+              <span className={styles.overlayName}>Devendra Singh Rana</span>
+              <span className={styles.overlayTitle}>MCA • Full Stack Developer</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Detailed Summary & Capabilities */}
+        <div className={styles.contentColumn}>
+          <div className={styles.headingWrapper}>
+            <span className={styles.badge}>About Me</span>
+            <h2 className={styles.mainTitle}>
+              Crafting Digital Solutions Through <span>Code & Creativity</span>
+            </h2>
+          </div>
+
+          <p className={styles.bioParagraph}>
+            I am a full-stack engineer with hands-on experience designing and
+            implementing production-ready applications. My expertise spans both frontend
+            and backend development, specializing in modern JavaScript ecosystems,
+            responsive user interfaces, and robust REST APIs.
+          </p>
+
+          <p className={styles.bioParagraph}>
+            With an academic background pursuing a Master of Computer Applications (MCA)
+            at GBPIET and prior experience as an engineer and frontend intern, I bring
+            systematic problem solving, clean architectural practices, and modern UI
+            standards to every team and project I contribute to.
+          </p>
+
+          {/* Core Highlights Grid */}
+          <div className={styles.highlightsGrid}>
+            {highlights.map((item, index) => (
+              <div key={index} className={styles.highlightCard}>
+                <div className={styles.highlightIconBox}>{item.icon}</div>
+                <div className={styles.highlightInfo}>
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Action Row */}
+          <div className={styles.actionRow}>
+            <a
+              href="https://drive.google.com/file/d/1CKK-uoK4nPooYw4725OVXK2-icDYeM-X/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.downloadCvBtn}
+            >
+              <FiDownload size={18} />
+              <span>Download Resume</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

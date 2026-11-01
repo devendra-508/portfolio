@@ -1,0 +1,212 @@
+@use '../../styles/variables' as *;
+
+.experienceSection {
+  position: relative;
+  @include section-container;
+}
+
+.timelineContainer {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 0;
+
+  // Glowing vertical spine line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 210, 255, 0.8) 0%,
+      rgba(130, 69, 236, 0.8) 50%,
+      rgba(0, 210, 255, 0.2) 100%
+    );
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.4);
+
+    @media (min-width: 768px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+
+    &:nth-child(odd) {
+      justify-content: flex-start;
+
+      .cardWrapper {
+        padding-right: 3rem;
+        text-align: right;
+
+        .cardHeader {
+          flex-direction: row-reverse;
+        }
+
+        .skillsList {
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      justify-content: flex-end;
+
+      .cardWrapper {
+        padding-left: 3rem;
+        text-align: left;
+      }
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Center node icon on the timeline
+.timelineNode {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: $bg-navy;
+  border: 2px solid $electric-blue;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.5), inset 0 0 10px rgba(0, 210, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: hidden;
+
+  img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+// Card Wrapper & Content
+.cardWrapper {
+  width: 100%;
+  padding-left: 3.5rem;
+
+  @media (min-width: 768px) {
+    width: 50%;
+    padding-left: 0;
+  }
+}
+
+.experienceCard {
+  @include glass-panel(16px, rgba(10, 15, 30, 0.75), rgba(255, 255, 255, 0.08));
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: $shadow-md;
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 210, 255, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 210, 255, 0.15);
+  }
+
+  @media (min-width: 640px) {
+    padding: 2rem;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+
+  .roleTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0;
+
+    @media (min-width: 640px) {
+      font-size: 1.35rem;
+    }
+  }
+
+  .companyName {
+    font-size: 0.95rem;
+    color: $electric-blue;
+    font-weight: 600;
+    margin: 0.25rem 0 0 0;
+  }
+
+  .dateBadge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    background: rgba(130, 69, 236, 0.12);
+    border: 1px solid rgba(130, 69, 236, 0.3);
+    color: #c084fc;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+}
+
+.description {
+  font-size: 0.925rem;
+  line-height: 1.7;
+  color: $text-muted;
+  margin: 0 0 1.25rem 0;
+  text-align: left;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  .skillBadge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.65rem;
+    border-radius: 0.4rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: $text-secondary;
+  }
+}
+
