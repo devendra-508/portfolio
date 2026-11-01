@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx next dev -H 127.0.0.1 -p 3000",
-    "build": "npx next build",
-    "start": "npx next start -H 127.0.0.1 -p 3000",
-    "lint": "npx next lint"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
