@@ -192,7 +192,7 @@ export const projects = [
       "REST API"
     ],
     github: "https://github.com/devendra-508/ai-crm-django",
-    webapp: "https://ai-crm-django.vercel.app",
+    webapp: "https://crm-project-52882.web.app/",
   },
   {
     id: 1,
